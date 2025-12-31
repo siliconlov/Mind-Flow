@@ -57,7 +57,7 @@ Your local app uses SQLite. For production, you **must** use PostgreSQL.
     - **Name**: `mindflow-api`
     - **Root Directory**: `MindFlow/server` (Correct!)
     - **Runtime**: Node
-    - **Build Command**: `npm install && npm run build`
+    - **Build Command**: `npm install && npm run build && npx prisma migrate deploy`
     - **Start Command**: `npm start`
 
 3.  **Environment Variables**:
