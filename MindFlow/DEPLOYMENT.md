@@ -64,7 +64,7 @@ Your local app uses SQLite. For production, you **must** use PostgreSQL.
     Add the following variables in the "Environment" tab:
     - `DATABASE_URL`: Your **Internal** Render Database URL.
     - `JWT_SECRET`: A long random string (e.g., generate one [here](https://generate-secret.vercel.app/32)).
-    - `GEMINI_API_KEY`: Your Gemini AI API Key.
+    - `PERPLEXITY_API_KEY`: Your Perplexity AI API Key.
     - `NODE_ENV`: `production`
 
 4.  **Deploy**:
