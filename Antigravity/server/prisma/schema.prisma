@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  notes     Note[]
+  credits   Int      @default(50)
+  deletedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Note {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  links     Link[]   @relation("SourceLink")
+  backlinks Link[]   @relation("TargetLink")
+  tags      Tag[]
+  isFavorite Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tag {
+  id    String @id @default(uuid())
+  name  String @unique
+  notes Note[]
+}
+
+model Link {
+  id        String   @id @default(uuid())
+  sourceId  String
+  targetId  String
+  source    Note     @relation("SourceLink", fields: [sourceId], references: [id])
+  target    Note     @relation("TargetLink", fields: [targetId], references: [id])
+  type      String   // e.g., "manual", "ai-suggested"
+  createdAt DateTime @default(now())
+}
