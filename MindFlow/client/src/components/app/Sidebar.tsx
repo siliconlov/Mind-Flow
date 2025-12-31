@@ -24,7 +24,7 @@ interface SidebarProps {
 }
 
 export function Sidebar({ activeTab, setActiveTab, notes, onSelectNote, onNewNote, onDeleteNote }: SidebarProps) {
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [tags, setTags] = useState<any[]>([]);
     const navigate = useNavigate();
@@ -55,7 +55,7 @@ export function Sidebar({ activeTab, setActiveTab, notes, onSelectNote, onNewNot
             <div className="p-4 border-b border-white/5 flex items-center gap-3 hover:bg-white/5 cursor-pointer transition-colors">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-accent" />
                 <div className="flex-1">
-                    <h3 className="text-sm font-bold text-white">Preet's Mind</h3>
+                    <h3 className="text-sm font-bold text-white">{user?.name ? `${user.name}'s Mind` : 'MindFlow Workspace'}</h3>
                     <p className="text-xs text-slate-400">Free Plan</p>
                 </div>
             </div>
