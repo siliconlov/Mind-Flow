@@ -55,7 +55,7 @@ Your local app uses SQLite. For production, you **must** use PostgreSQL.
 
 2.  **Configure Service**:
     - **Name**: `mindflow-api`
-    - **Root Directory**: `server` (Important! Set this to `server`).
+    - **Root Directory**: `MindFlow/server` (Correct!)
     - **Runtime**: Node
     - **Build Command**: `npm install && npm run build`
     - **Start Command**: `npm start`
@@ -82,7 +82,7 @@ Your local app uses SQLite. For production, you **must** use PostgreSQL.
 
 2.  **Configure Project**:
     - **Framework Preset**: Vite (Should auto-detect).
-    - **Root Directory**: Click "Edit" and select `client`.
+    - **Root Directory**: Click "Edit" and select `MindFlow/client`.
 
 3.  **Environment Variables**:
     - Expand "Environment Variables".
